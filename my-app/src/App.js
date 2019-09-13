@@ -1,13 +1,26 @@
 import React from 'react';
-import './App.css';
+import { Route } from 'react-router-dom';
 import Insults from './components/Insults.js';
+import Navigation from './components/Navigation';
+import Main from './components/Main.js';
+import './App.css';
 
 
 function App() {
   return (
     <div className="App">
-    <h1>Yo....Be Ready To Get Inuslted!!!</h1>
-    <Insults />
+    <Navigation />
+
+    <Route 
+    exact path='/'
+    component={Main}
+    />
+
+    <Route
+    exact path='/Insults'
+    component={Insults}
+    />
+    
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { FETCHING_INSULT_START, FETCHING_INSULT_SUCCESS } from '../action/index.
 const initialState = {
     insult: null,
     isFetching: false,
+    clicked: false,
     error: ''
 };
 

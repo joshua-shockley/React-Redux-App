@@ -5,28 +5,29 @@ import { getInsult } from '../action/index.js';
 
 
 
-const Insults = (props) => {
+const Insults = ({insult, getInsult, isFetching, error, clicked}) => {
 
 useEffect(() => {
-    props.getInsult();
+    getInsult();
 
-},[props.getInsult]);
+},[getInsult]);
 
-// if (props.isFetching){
-//     return <h1>get ready for your insult!... you might not like it...</h1>;
-// }
-console.log(props);
+if (isFetching){
+    return <h1 className="App-header" >get ready for your insult!... you might not like it...</h1>;
+};
     return (
-        <div>
-            say hello from Insults.js
-            <h2>{props.insult}</h2>
-            <button onClick={props.getInsult}>Insult Me</button>
+
+        <div className="insult-container App-header">
+            <button className="insult-button" onClick={getInsult}>Insult Me Again</button>
+            <br/>
+            <h2 className="the-insult-itself">{insult}</h2>
         </div>
     );
 };
 
 
 const mapStateToProps = state => {
+    console.log(state);
     return{
         insult: state.insult,
         isFetching: state.isFetching,
